@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/doss-react-app/static/css/main.073c9b0a.css",
-    "main.js": "/doss-react-app/static/js/main.e1a62655.js",
+    "main.js": "/doss-react-app/static/js/main.1dd00416.js",
     "static/js/787.f39c3e23.chunk.js": "/doss-react-app/static/js/787.f39c3e23.chunk.js",
     "index.html": "/doss-react-app/index.html",
     "main.073c9b0a.css.map": "/doss-react-app/static/css/main.073c9b0a.css.map",
-    "main.e1a62655.js.map": "/doss-react-app/static/js/main.e1a62655.js.map",
+    "main.1dd00416.js.map": "/doss-react-app/static/js/main.1dd00416.js.map",
     "787.f39c3e23.chunk.js.map": "/doss-react-app/static/js/787.f39c3e23.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.e1a62655.js"
+    "static/js/main.1dd00416.js"
   ]
 }
