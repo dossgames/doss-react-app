@@ -1,4 +1,4 @@
-import { GoogleLogin } from "@react-oauth/google";
+import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import "./App.css";
 
@@ -10,14 +10,34 @@ function App() {
     <GoogleOAuthProvider clientId="881972664289-v0d402h99pa1s8vcqpr10no30dubv4k7.apps.googleusercontent.com">
       <div className="App">
         <h1>Google-Auth</h1>
-        <GoogleLogin
+        {/* <GoogleLogin
           onSuccess={onGOuthSuccess}
           onError={() => {
             console.log("Login Failed");
           }}
-        />
+          ux_mode="redirect"
+          login_uri="http://f378-106-51-78-204.ngrok.io/test-api/ValidateIdToken/"
+        /> */}
+        <LoginPage />
       </div>
     </GoogleOAuthProvider>
+  );
+}
+
+function LoginPage() {
+  const login = useGoogleLogin({
+    onSuccess: (tokenResponse) => {
+      console.log(tokenResponse);
+    },
+    flow: "auth-flow",
+    ux_mode: "redirect",
+    redirect_uri: "https://tools.coode.fun/test-api/ValidateIdToken/",
+  });
+
+  return (
+    <div>
+      <button onClick={() => login()}>Login with google✌</button>
+    </div>
   );
 }
 
