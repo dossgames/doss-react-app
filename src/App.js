@@ -2,7 +2,7 @@ import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import "./App.css";
 
-const backendUrl = "https://tools.coode.fun";
+const backendUrl = "https://tools.doss.games";
 const backendEndpoint = "/test-api/ValidateIdToken";
 
 function App() {
@@ -31,7 +31,7 @@ function LoginPage() {
     },
     flow: "auth-flow",
     ux_mode: "redirect",
-    redirect_uri: "https://tools.coode.fun/test-api/ValidateIdToken/",
+    redirect_uri: "https://tools.doss.games/test-api/ValidateIdToken/",
   });
 
   return (
