@@ -1,5 +1,36 @@
+.Main-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fefefe;
+  background: rgba(255, 255, 255, 0.02);
+  border: rgba(255, 255, 255, 0.25)  solid 1px;
+  padding: 4em;
+  border-radius: 0.2em;
+}
+
+.Gauth-btn {
+  font-size: 1em;
+  padding: 0.8em 0em;
+  border-radius: 4em;
+  border: rgba(255, 255, 255, 0.25)  solid 1px;
+  background-color:#F44B72;
+  color: #fefefe;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  justify-content: center;
+}
+
 .App {
   text-align: center;
+}
+
+.Logo {
+  height: 10em;
+  pointer-events: none;
 }
 
 .App-logo {

@@ -1,15 +1,17 @@
-import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
+import { useGoogleLogin } from "@react-oauth/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import "./App.css";
 
-const backendUrl = "https://tools.doss.games";
-const backendEndpoint = "/test-api/ValidateIdToken";
-
 function App() {
   return (
+    <div style={{display:"flex", alignItems:"center", width:"100vw", height:"100vh", justifyContent:"center"}} >
+    <div className="Main-cont" >
+      <img src={require("./Assets/logo.png")} className="Logo" alt="Doss Logo"/>
+      <h1 style={{lineHeight:0, paddingBottom:"1em", fontWeight:800}} >Doss Wallet</h1>
+      
     <GoogleOAuthProvider clientId="881972664289-v0d402h99pa1s8vcqpr10no30dubv4k7.apps.googleusercontent.com">
       <div className="App">
-        <h1>Google-Auth</h1>
+        {/* <h1>Google-Auth</h1> */}
         {/* <GoogleLogin
           onSuccess={onGOuthSuccess}
           onError={() => {
@@ -19,8 +21,16 @@ function App() {
           login_uri="http://f378-106-51-78-204.ngrok.io/test-api/ValidateIdToken/"
         /> */}
         <LoginPage />
+        <br/>
+        <p style={{lineHeight:1.8, fontWeight:600 }} >
+          Play Unlimited Games. <br/>
+          Single click Google Auth Signin. <br/>
+          Play & Earn tokens.
+        </p>
       </div>
     </GoogleOAuthProvider>
+    </div>
+    </div>
   );
 }
 
@@ -36,46 +46,9 @@ function LoginPage() {
 
   return (
     <div>
-      <button onClick={() => login()}>Login with google✌</button>
+      <button className="Gauth-btn" onClick={() => login()}> <img src={require("./Assets/google_icon.png")} style={{height:"10%", width:"10%"}} alt="Google"/> SIGN IN WITH GOOGLE</button>
     </div>
   );
 }
-
-var onGOuthSuccess = (credentialResponse) => {
-  const requestOptions = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ token: credentialResponse.credential }),
-  };
-  fetch(backendUrl + backendEndpoint, requestOptions)
-    .then(async (response) => {
-      const data = await response.json();
-      window.postMessage(
-        JSON.stringify({
-          source: "doss",
-          type: "subscribe",
-          eventName: "success",
-          data: {
-            authKey: data.accessToken,
-            refKey: data.refreshToken,
-            isWallet: data.walletExists ? "true" : "false",
-          },
-        }),
-        "*"
-      );
-
-      // check for error response
-      if (!response.ok) {
-        // get error message from body or default to response status
-        const error = (data && data.message) || response.status;
-        return Promise.reject(error);
-      }
-    })
-    .catch((error) => {
-      console.error("There was an error!", error);
-    });
-};
 
 export default App;
